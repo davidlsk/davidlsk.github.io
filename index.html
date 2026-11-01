@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <!-- viewport sorgt dafür, dass die Seite auf dem Handy richtig skaliert -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Persönliche Seite — meine Projekte und was ich baue.">
+  <title>Dein Name</title>
+
+  <!--
+    Das gesamte CSS steht hier im <style>-Block.
+    Bei einer einzelnen Seite ist das völlig in Ordnung. Wenn die Seite
+    später wächst, kannst du das CSS in eine eigene style.css auslagern
+    und mit <link rel="stylesheet" href="style.css"> einbinden.
+  -->
+  <style>
+    /* --- 1. Variablen: hier zentral Farben & Schrift ändern --- */
+    :root {
+      --bg: #faf9f6;
+      --text: #1a1a1a;
+      --muted: #6b6b6b;
+      --accent: #2b5cff;
+      --border: #e4e2dc;
+      --max-width: 720px;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    /* --- 2. Grundlegendes Reset & Basis --- */
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      font-size: 17px;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* zentriert den Inhalt und begrenzt die Breite (gut lesbar) */
+    .wrap {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* --- 3. Navigation (klebt oben beim Scrollen) --- */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(250, 249, 246, 0.9);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--border);
+      z-index: 10;
+    }
+    nav .wrap {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      padding-top: 14px;
+      padding-bottom: 14px;
+    }
+    nav .name { font-weight: 700; margin-right: auto; }
+    nav a { color: var(--muted); font-size: 15px; }
+
+    /* --- 4. Abschnitte --- */
+    section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+    section:last-child { border-bottom: none; }
+    h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 8px; }
+    h2 { font-size: 1.4rem; margin: 0 0 16px; }
+    h3 { font-size: 1.1rem; margin: 28px 0 8px; }
+    .tagline { color: var(--muted); font-size: 1.05rem; margin: 0; }
+
+    /* --- 5. Projektkarte --- */
+    .project {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      background: #fff;
+    }
+    .project .meta {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0 0 16px;
+    }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+    .tag {
+      font-size: 13px;
+      background: #f0eee8;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 3px 12px;
+      color: var(--muted);
+    }
+    /* responsives Bild: nie breiter als der Container */
+    .project img { width: 100%; height: auto; border-radius: 8px; margin: 16px 0; }
+
+    footer { padding: 40px 0; color: var(--muted); font-size: 14px; }
+  </style>
+</head>
+
+<body>
+  <!-- id="top" als Sprungziel für den Namen oben links -->
+  <a id="top"></a>
+
+  <!-- ============ NAVIGATION ============ -->
+  <nav>
+    <div class="wrap">
+      <a href="#top" class="name">Dein Name</a>
+      <a href="#about">Über mich</a>
+      <a href="#projects">Projekte</a>
+      <a href="#contact">Kontakt</a>
+    </div>
+  </nav>
+
+  <!-- ============ HEADER / INTRO ============ -->
+  <header>
+    <div class="wrap" style="padding: 64px 24px 0;">
+      <h1>Hi, ich bin Dein Name.</h1>
+      <p class="tagline">Ich baue Dinge und dokumentiere sie hier. Mein erstes Projekt: Modbox.</p>
+    </div>
+  </header>
+
+  <!-- ============ ÜBER MICH ============ -->
+  <section id="about">
+    <div class="wrap">
+      <h2>Über mich</h2>
+      <p>
+        Hier ein paar Sätze über dich: Was interessiert dich, woran arbeitest du,
+        was treibt dich an. Halt es kurz und ehrlich — zwei bis vier Sätze reichen.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ PROJEKTE ============ -->
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projekte</h2>
+
+      <!--
+        Das hier ist EINE Projektkarte. Wenn du ein neues Projekt hast,
+        kopierst du den gesamten <article class="project"> ... </article>-Block
+        und passt den Inhalt an.
+      -->
+      <article class="project">
+        <h3 style="margin-top:0;">Modbox</h3>
+        <p class="meta">Erstes eigenes Projekt · zuletzt aktualisiert: Juni 2026</p>
+
+        <p>
+          <strong>Was ist Modbox?</strong> Beschreibe in ein, zwei Sätzen,
+          was das Projekt ist und welches Problem es löst.
+        </p>
+
+        <!-- Bild einbinden: Datei z.B. als bilder/modbox.jpg ablegen -->
+        <!-- <img src="bilder/modbox.jpg" alt="Modbox – Aufbau"> -->
+
+        <h3>Motivation</h3>
+        <p>Warum hast du Modbox gebaut? Was wolltest du lernen oder erreichen?</p>
+
+        <h3>Aufbau & Vorgehen</h3>
+        <p>
+          Wie bist du vorgegangen? Welche Komponenten, welche Technik, welche
+          Entscheidungen hast du getroffen? Das ist der interessanteste Teil für
+          Leser — zeig deinen Denkprozess.
+        </p>
+
+        <h3>Was ich gelernt habe</h3>
+        <p>Was hat funktioniert, was nicht, was würdest du beim nächsten Mal anders machen?</p>
+
+        <div class="tags">
+          <span class="tag">Hardware</span>
+          <span class="tag">DIY</span>
+          <span class="tag">In Arbeit</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ KONTAKT ============ -->
+  <section id="contact">
+    <div class="wrap">
+      <h2>Kontakt</h2>
+      <p>
+        E-Mail: <a href="mailto:deine@email.de">deine@email.de</a><br>
+        Instagram: <a href="#">@deinhandle</a>
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">© 2026 Dein Name</div>
+  </footer>
+</body>
+</html>
